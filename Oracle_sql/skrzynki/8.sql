@@ -52,7 +52,7 @@ alter table pozycja
     modify(IDorder unique);
 	
 	
--- 2
+-- 2.1
 alter table klient
     add(mail varchar2(45) null);
 -- 2.2
