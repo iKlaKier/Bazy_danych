@@ -79,6 +79,19 @@ zakończona')));
 ALTER TABLE produkt
 modify(price_gross as default(price_net*1.23) VIRTUAL);
 
+-- działające
+
+alter table produkt
+    drop column price_gross;
+	
+alter table produkt
+    add vat decimal(3);
+
+alter table produkt
+    modify vat DEFAULT 0;
+
+alter table produkt
+    add price_gross as (price_net + price_net*vat);
 -- 2.7
 create index client_fast
     ON klient(surname, login, mail);
